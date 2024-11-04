@@ -1,0 +1,23 @@
+from ultralytics import RTDETR
+
+# Load a COCO-pretrained RT-DETR-l model
+model = RTDETR("rtdetr-x.pt")
+#model = RTDETR("/home/parham/yolov10/runs/detect/train28/weights/best.pt")
+# Display model information (optional)
+model.info()
+
+# Train the model on the COCO8 example dataset for 100 epochs
+results = model.train(
+    data="igrow.yaml", 
+    epochs=100,
+    batch=12, 
+    imgsz=480,
+    weight_decay=0.0005,
+    # degrees=0.0,
+    # translate=0.0,
+    # scale=0.5,
+    # shear=0.0
+    auto_augment=True)
+#AdamW(lr=0.000909, momentum=0.9) -- this was picked automatically
+# Run inference with the RT-DETR-l model on the 'bus.jpg' image
+results = model.predict()
