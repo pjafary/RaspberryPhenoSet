@@ -82,7 +82,7 @@ The dataset was developed for raspberry fruit phenology-stage detection and incl
 The download directory contains two image versions:
 
 - **High Resolution Images** – original-resolution images for multi-GPU training.  
-- **Low Resolution Images** – resized images optimized for training and inference on standard mid-class GPUs (ours was Nvidia RTX3060 12GB).  
+- **Low Resolution Images** – resized images optimized for training and inference on standard mid-class GPUs (ours was NVIDIA RTX 3060 12GB).  
 
 Each image folder also includes a compressed labels archive containing the corresponding annotations.
 
