@@ -5,7 +5,6 @@
 - [Dataset](#dataset)
 - [Training](#training)
 - [Inference](#inference)
-- [Results](#results)
 - [Citation](#citation)
 
 ## Overview
@@ -75,10 +74,61 @@ pip install -r requirements_detectron2.txt
 ```
 
 ## Dataset
+The Raspberry PhenoSet dataset is publicly available and can be downloaded from [here](https://drive.google.com/drive/folders/1LjmMFmOruVmRGwyY0pPJtkRCH17aW7Tz?usp=drive_link)
+
+The dataset was developed for raspberry fruit phenology-stage detection and includes annotations aligned with seven biologically meaningful developmental stages based on the BBCH phenological framework.
+
+### Dataset Contents
+The download directory contains two image versions:
+
+- **High Resolution Images** – original-resolution images for multi-GPU training.  
+- **Low Resolution Images** – resized images optimized for training and inference on standard mid-class GPUs (ours was Nvidia RTX3060 12GB).  
+
+Each image folder also includes a compressed labels archive containing the corresponding annotations.
+
+### Folder Structure
+
+After downloading and extracting the files you should have:
+
+```text
+RaspberryPhenoSet/
+├── high.resolution(raw)/
+│   ├── images/
+│   └── labels.zip
+│
+├── low.resolution(resized)/
+│   ├── images/
+│   └── labels.zip
+```
+
+If using Ultralytics training make sure to arrange them in you arbitrary path as:
+```text
+dataset/
+├── images/
+│   ├── train/
+│   ├── val/
+│   └── test/
+├── labels/
+│   ├── train/
+│   ├── val/
+│   └── test/
+```
+
 ## Training
+Python scripts are provided for training with examples on how to configure a model either to train scratch or load a pre-trained model for further fine-tuning, please refer to `train_ultralytics.py` or `train_detectron2.py`.
 ## Inference
-## Results
+Similar to the training procedure, Python scripts are provided for inference as well with examples on how to load a pre-trained for inference, please refer to `detect_ultralytics.py` or `detec_detectron2.py` or for live camera inferece use `livecam_ultralytics.py
+
 ## Citation
+Currently we appreciate your citations on our arXiv paper:
+```text
+@article{jafary2024raspberry,
+  title={Raspberry PhenoSet: A Phenology-based Dataset for Automated Growth Detection and Yield Estimation},
+  author={Jafary, Parham and Bazangeya, Anna and Pham, Michelle and Campbell, Lesley G and Saeedi, Sajad and Zareinia, Kourosh and Bougherara, Habiba},
+  journal={arXiv preprint arXiv:2411.00967},
+  year={2024}
+}
+```
 ## Contact
 You can contact me by email at pjafary@torontomu.ca
 
