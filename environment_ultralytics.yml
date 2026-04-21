@@ -1,0 +1,34 @@
+name: phenoset_ultralytics
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.9
+  - pip
+  - pytorch=2.0.*
+  - torchvision=0.15.*
+  - torchaudio=2.0.*
+  - pytorch-cuda=11.8
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - scikit-learn
+  - scikit-image
+  - opencv
+  - pillow
+  - pyyaml
+  - tqdm
+  - jupyter
+  - ipykernel
+  - pip:
+      - ultralytics==8.2.57
+      - pycocotools
+      - onnx
+      - onnxruntime-gpu
+      - onnxsim
+      - thop
+      - albumentations
