@@ -43,6 +43,7 @@ cd RaspberryPhenoSet
 conda env create -f environment.yml
 ```
 2. Install Ultralytics
+
 To run YOLO and RT-DETR models, you need to have [Ultralytics](https://github.com/ultralytics/ultralytics) installed; you can use the following instructions.
 
 ```bash
@@ -50,6 +51,7 @@ conda activate raspberry_phenoset
 pip install ultralytics
 ```
 3. Detectron2
+
 To run Faster R-CNN and Mask R-CNN models, you need to have [Detectron2](https://github.com/facebookresearch/detectron2) installed; you can use either of the following instructions.
 
 ```bash
