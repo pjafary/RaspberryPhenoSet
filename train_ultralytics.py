@@ -16,7 +16,7 @@ model.load("yolov8x.pt")   # optional: loads matching pretrained weights where s
 
 # configure the training hyperparameters below and train the model on the PhenoSet
 results = model.train(
-    data='Phenoset.yaml',
+    data='Raspberry_PhenoSet.yaml',
     # data='PhenoSet_clahe.yaml',
     epochs=100,
     batch=12,
