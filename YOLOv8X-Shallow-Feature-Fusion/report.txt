@@ -1,0 +1,11 @@
+OLOv8x_p2_shallow summary (fused): 327 layers, 66559532 parameters, 0 gradients, 316.2 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 18/18 [00:10<00:00,  1.78it/s]
+                   all        274       1019      0.761      0.663       0.71      0.547
+                     A        274        188      0.852      0.766       0.85      0.657
+                     B        274        198      0.811      0.626      0.741      0.523
+                     C        274        236      0.686      0.555        0.6      0.394
+                     D        274        167      0.652      0.677      0.639      0.475
+                     E        274         71      0.684       0.58      0.598      0.451
+                     F        274         70      0.853      0.529      0.657      0.588
+                     G        274         89      0.786      0.907      0.886      0.744
+Speed: 0.5ms preprocess, 34.4ms inference, 0.0ms loss, 0.7ms postprocess per image
