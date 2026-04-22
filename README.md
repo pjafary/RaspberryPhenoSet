@@ -31,46 +31,36 @@ If you already know your way around CV and DL models, without further ado check 
 New to AI and Computer Vision? Fear not, just follow the instructions below. 
 
 ## Installation
-Below you'll find the instructions for configuring Ultralytics and Detectron2 environments to use as per your preference.
+Below you'll find the instructions for configuring the environment using Conda and installing Ultralytics and Detectron2 dependencies (you can have your pick among steps 2 and 3 based on the models you want to use.
 
 **Note:** GPU acceleration requires a compatible NVIDIA GPU and installed NVIDIA driver. The provided environment file installs the required Python and CUDA runtime dependencies, but not the system-level GPU driver.
 
-### Ultralytics
-To run YOLO and RT-DETR models, you need to have Ultralytics installed; you can install it from the source at [Ultralytics](https://github.com/ultralytics/ultralytics) or if you have Conda installed, use the following instructions.
-
-Start by cloning the repository
+1. Start by cloning the repository
 
 ```bash
 git clone https://github.com/pjafary/RaspberryPhenoSet.git
 cd RaspberryPhenoSet
+conda env create -f environment.yml
 ```
-
-Now let's create a Conda environment
+2. Install Ultralytics
+To run YOLO and RT-DETR models, you need to have [Ultralytics](https://github.com/ultralytics/ultralytics) installed; you can use the following instructions.
 
 ```bash
-conda env create -f environment_ultralytics.yml
-conda activate phenoset_ultralytics
+conda activate raspberry_phenoset
+pip install ultralytics
 ```
-
-If you don't use Conda, no worries, I have included requirement files so you can install everything you need using pip:
+3. Detectron2
+To run Faster R-CNN and Mask R-CNN models, you need to have [Detectron2](https://github.com/facebookresearch/detectron2) installed; you can use either of the following instructions.
 
 ```bash
-pip install -r requirements_ultralytics.txt
+conda activate raspberry_phenoset
+python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
+# (add --user if you don't have permission)
 ```
-
-### Detectron2
-To run Faster R-CNN and Mask R-CNN models, you need to have Detectron2 installed; again, you can install it from the source at [Facebook Research](https://github.com/facebookresearch/detectron2) or use the following instructions using Conda.
-
-Similarly, you can use Conda with:
+Or, to install it from a local clone:
 ```bash
-conda env create -f environment_detectron2.yml
-conda activate phenoset_detectron2
-```
-
-Or use pip:
-
-```bash
-pip install -r requirements_detectron2.txt
+git clone https://github.com/facebookresearch/detectron2.git
+python -m pip install -e detectron2
 ```
 
 ## Dataset
@@ -115,7 +105,8 @@ dataset/
 ```
 
 ## Training
-Python scripts are provided for training with examples on how to configure a model either to train scratch or load a pre-trained model for further fine-tuning, please refer to `train_ultralytics.py` or `train_detectron2.py`.
+Ready-to-use Python scripts are provided for training with examples on how to configure a model either to train scratch or load a pre-trained model for further fine-tuning, please refer to `train_ultralytics.py` or `train_detectron2.py`.
+
 ## Inference
 Similar to the training procedure, Python scripts are provided for inference as well with examples on how to load a pre-trained for inference, please refer to `detect_ultralytics.py` or `detec_detectron2.py` or for live camera inferece use `livecam_ultralytics.py
 
